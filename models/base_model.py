@@ -4,6 +4,7 @@ This contains BaseModel class from which other classes will inherit
 """
 import uuid
 import datetime
+from . import storage
 
 class BaseModel:
     """
@@ -27,7 +28,7 @@ class BaseModel:
                     elif key == "updated_at":
                         self.updated_at = datetime.datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                     else:
-                        self.key = value
+                        setattr(self, key, value)
         else:
 
             self.id = str(uuid.uuid4())
@@ -48,7 +49,7 @@ class BaseModel:
         with the current datetime
         """
         self.updated_at = datetime.datetime.now()
-
+        storage.save()
 
     def to_dict(self):
         """
