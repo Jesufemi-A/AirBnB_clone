@@ -4,7 +4,7 @@ This contains BaseModel class from which other classes will inherit
 """
 import uuid
 import datetime
-from . import storage
+import models
 
 class BaseModel:
     """
@@ -19,6 +19,10 @@ class BaseModel:
         args:
         self - refers to the instance itself
         """
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.now()
+
 
         if kwargs is not None and len(kwargs) != 0:
             for key, value in kwargs.items():
@@ -29,12 +33,8 @@ class BaseModel:
                         self.updated_at = datetime.datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                     else:
                         setattr(self, key, value)
-        else:
 
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
-
+        models.storage.new(self)
 
     def __str__(self):
         """
@@ -49,7 +49,7 @@ class BaseModel:
         with the current datetime
         """
         self.updated_at = datetime.datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """

@@ -3,7 +3,7 @@
 contains class HBNBCommand
 """
 import cmd
-
+from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """
     class to create command line interpreter
@@ -32,6 +32,9 @@ class HBNBCommand(cmd.Cmd):
         command prompt
         """
         return cmd.Cmd.emptyline(self)
+
+    def do_create(self, line):
+
 
 
 if __name__ == '__main__':
