@@ -5,13 +5,14 @@ contains class FileStorage
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """
-    class that serializes instances to a JSON file and deserializes JSON file to instances
+    class that serializes instances to a JSON
+    file and deserializes JSON file to instances
     """
     __file_path = "file.json"
     __objects = {}
-
 
     def all(self):
         """
