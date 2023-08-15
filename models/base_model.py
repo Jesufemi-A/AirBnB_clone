@@ -31,7 +31,7 @@ class BaseModel:
                     if key == "created_at":
                         self.created_at = datetime.strptime(value, date_f)
                     elif key == "updated_at":
-                        i self.updated_at = datetime.strptime(value, date_f)
+                        self.updated_at = datetime.strptime(value, date_f)
                     else:
                         setattr(self, key, value)
         models.storage.new(self)
