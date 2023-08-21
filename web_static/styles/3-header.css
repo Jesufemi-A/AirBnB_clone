@@ -3,7 +3,7 @@ header {
     align-items: center;
     color: white;
     height: 70px;
-    width: 100px;
+    width: 100%;
     border-bottom: 1px #CCCCCC;
 }
 
@@ -11,6 +11,6 @@ header {
     content: url('images/AirBnb');
 }*/
 
-.logo {
-    background-image: url("web_static/images/logo.png");
+header .logo {
+    background-image: url("../images/logo.png");
 }
