@@ -11,6 +11,6 @@ header {
     content: url('images/AirBnb');
 }*/
 
-#logo {
-    background-image: url("web_static/images/AirBnb.png");
+.logo {
+    background-image: url("web_static/images/logo.png");
 }
